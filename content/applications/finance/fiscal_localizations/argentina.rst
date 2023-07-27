@@ -58,7 +58,7 @@ Chart of account
 ----------------
 
 In Accounting, there are three different :guilabel:`Chart of Accounts` packages to choose from.
-They are based on a company's AFIP responsibility type, and consider the frence between
+They are based on a company's AFIP responsibility type, and consider the difference between
 companies that do not require as many accounts as the companies that have more complex fiscal
 requirements:
 
@@ -698,21 +698,20 @@ to complete certain configurations for the own checks and the third party checks
 Own checks
 ~~~~~~~~~~
 
-In the case of own checks, the configuration needed is related to the bank that will use this kind
-of payment method.
+In the case of own checks, the configuration needed is related to the bank that uses this kind of
+payment method.
 
-For the bank journals that will be used to create own checks, go to :menuselection:`Accounting -->
-Journals` where the next two configurations need to be made:
+For the **bank** journals used to create your own checks, go to :menuselection:`Accounting -->
+Configuration --> Journals` where the next two configurations need to be made:
 
-- The bank journal should have an outgoing payment method of :guilabel:`Checks` active.
-- In the section of :guilabel:`Checks Management` the field :guilabel:`Uses Electronic or Deferred
-  Checks` should be activated.
+- The :guilabel:`Bank` journal requires an outgoing payment method of :guilabel:`Checks` active
+- In the section :guilabel:`Checks Management`, the field :guilabel:`Uses Electronic or Deferred
+  Checks` must be activated
 
-This last configuration will enable the ability to:
+This last configuration **disables** the printing ability, but enables to:
 
-- Enter check numbers manually.
-- Enable a field to allocate the payment date of the check.
-- Printing will be deactivated.
+- Enter check numbers manually
+- Enable a field to allocate the payment date of the check
 
 .. image:: argentina/bank-journal-conf.png
    :align: center
@@ -722,38 +721,33 @@ Management of own checks
 ************************
 
 Own checks can be created directly from the vendor bill. For this process, click on the
-:guilabel:`Register Payment` button. This will show the pop-up menu to register any kind of payment.
+:guilabel:`Register Payment` button. This pops up the menu to register a payment.
 
-.. image:: argentina/register-pay-vendorbill.png
-   :align: center
-   :alt: Register Payment button on a vendor bill.
-
-In this window, it is necessary to select the bank journal from which the payment will be made and
-the :guilabel:`Payment Method` should be `Checks`. Also, it is necessary to add the :guilabel:`Check
-Number`, the :guilabel:`Check Payment Date` and the amount to pay.
+In that menu, select the bank journal from which the payment is to be made and set the
+:guilabel:`Payment Method` to `Checks`. It is necessary to enter the :guilabel:`Check Number`, the
+:guilabel:`Check Cash-In Date` and the :guilabel:`Amount`.
 
 .. image:: argentina/payment-popup-vendorbill.png
    :align: center
    :alt: Payment pop-up window with own check options enabled.
 
 .. note::
-   To manage current checks, the :guilabel:`Check Payment Date` should be left blank or filled with
-   the actual date. To manage deferred checks, the :guilabel:`Check Payment Date` should be in the
-   future.
+   To manage current checks, the :guilabel:`Check Cash-In Date` field must be left blank or filled
+   in with the actual date. To manage deferred checks, the :guilabel:`Check Cash-In Date` must be
+   set in the future.
 
 To manage your already existing own checks, navigate to :menuselection:`Accounting --> Vendors -->
 Own Checks`. This window shows critical information such as the dates when checks need to be paid,
-total quantity of checks, the total amount paid in checks, which will lead to better financial
-planning.
+total quantity of checks, and the total amount paid in checks.
 
 .. image:: argentina/checks-menu-vendorbill.png
    :align: center
    :alt: Own checks menu location.
 
-Also, it is important to note that the list is pre-filtered by checks that are still not reconciled
-with a bank statement - that were not yet debited from the bank - which can be noted by the
-:guilabel:`Is Matched with a Bank Statement` field. If you want to see all of your own checks, you
-can delete the :guilabel:`No Bank Matching` filter manually by clicking on the :guilabel:`X` symbol.
+It is important to note that the list is pre-filtered by checks that are still *not reconciled* with
+a bank statement - that were not yet debited from the bank - which can be verified with the
+:guilabel:`Is Matched with a Bank Statement` field. If you want to see all of your own checks,
+delete the :guilabel:`No Bank Matching` filter by clicking on the :guilabel:`X` symbol.
 
 .. image:: argentina/check-menu-list-vendorbill.png
    :align: center
@@ -763,20 +757,19 @@ Cancel an own check
 *******************
 
 To cancel an own check created in Odoo, navigate to :menuselection:`Accounting --> Vendors --> Own
-Checks` and select the check to be canceled, then click on the :guilabel:`Empty Check` button.
+Checks` and select the check to be canceled, then click on the :guilabel:`Void Check` button. This
+will break the conciliation with the vendor bills and the bank statements and leave the check in a
+**canceled** state.
 
 .. image:: argentina/empty-check-button.png
    :align: center
    :alt: Empty Check button to cancel Own Checks
 
-This will break the conciliation with the vendor bills and the bank statements and leave the check
-in a canceled state.
-
 Third party checks
 ~~~~~~~~~~~~~~~~~~
 
-To manage third party checks in Odoo, navigate to :menuselection:`Accounting application --> Clients
---> Third Party Checks`.
+To manage third party checks in Odoo, navigate to :menuselection:`Accounting --> Customers --> Third
+Party Checks`.
 
 .. image:: argentina/checks-menu-customerinvoice.png
    :align: center
@@ -785,60 +778,73 @@ To manage third party checks in Odoo, navigate to :menuselection:`Accounting app
 Third party checks need specific journals to be used as a customer payment method, in order to
 register the payments using this type of checks. The journals needed are:
 
-- :guilabel:`Third Party Checks` journal
-- :guilabel:`Rejected Third Party Checks` journal
+- :guilabel:`Third Party Checks`
+- :guilabel:`Rejected Third Party Checks`
 
-.. image:: argentina/third-party-checks-journals.png
-   :align: center
-   :alt: Journals for Third Party checks.
+.. note::
+   You can manually create more journals if you have multiple points of sale and need journals for
+   those.
 
-You can manually create more journals if there is the need to use it in more points of sale.
+Configuration
+*************
 
-The :guilabel:`Third Party Checks` journal needs to be configured with a new account,
-:guilabel:`Cash Account`, created specifically for the new journals.
+.. _checks-configuration:
+
+Both **Third Party Checks** and **Existing Third Party Check** journals need to be created and/or
+configured before use under the :menuselection:`Accounting --> Configuration --> Journals`. For the
+**Third Party Checks** journal:
+
+- Select :guilabel:`Cash` as :guilabel:`Type`
+- In the :guilabel:`Journal Entries` tab, set :guilabel:`Cash Account`: to :guilabel:`1.1.1.02.010
+  Cheques de Terceros`, input a :guilabel:`Short Code` of your choice, and select a
+  :guilabel:`Currency`
 
 .. image:: argentina/auto-cash-account.png
    :align: center
    :alt: Automatically created cash account.
 
-The available payment methods are listed on the :guilabel:`Payment Methods` tab:
+The available payment methods are listed in the **payments** tabs:
 
-- :guilabel:`New Third Party Check`: For incoming payments, this method will be used to create new
-  third party checks.
-- :guilabel:`Existing Third Party Check`: For incoming and outgoing payments, this method will be
-  used to receive or pay a vendor bills using already existing checks, as well as for internal
-  transfers.
+- For **incoming new third party checks**, go to :menuselection:`Incoming Payments --> Add a line`
+  and select :guilabel:`New Third Party Checks`. This method is used to create **new** third
+  party checks.
+- For **incoming** and **outgoing existing third party checks**, go to :menuselection:`Incoming
+  Payments --> Add a line` and select :guilabel:`Existing Third Party Checks`. Repeat the same step
+  for the :guilabel:`Outgoing Payments` tab. This method is used to receive and/or pay vendor bills
+  using already existing checks, as well as for internal transfers.
+
+.. tip::
+   You can delete pre-existing payment methods appearing by default when configuring the **third
+   party checks journals**.
 
 .. image:: argentina/auto-payment-methods.png
    :align: center
    :alt: Payment methods automatically created.
 
-The :guilabel:`Rejected Third Party Checks` journal also needs to be configured. This journal is
-used to manage rejected third party checks. It can be utilized to send checks rejected at the moment
-of collection or when coming from vendors when rejected.
+The :guilabel:`Rejected Third Party Checks` journal also needs to be created and/or configured. This
+journal is used to manage rejected third party checks and can be utilized to send checks rejected at
+the moment of collection or when coming from vendors when rejected.
 
-The journal is configured with its own cash account (named :guilabel:`Rejected Third Party Check`)
-and the payment methods mentioned above.
+To configure the **Rejected Third Party Checks** journal:
+
+- Select :guilabel:`Cash` as :guilabel:`Type`
+- In the :guilabel:`Journal Entries` tab, set :guilabel:`Cash Account`: to :guilabel:`1.1.1.01.002
+  Rejected Third Party Checks`, input a :guilabel:`Short Code` of your choice, and select a
+  :guilabel:`Currency`
+
+Use the same :ref:`payments methods <checks-configuration>` as the **Third Party Checks** journal.
 
 New third party checks
 **********************
 
-When on a customer invoice, click on the :guilabel:`Register Payment` button. This will show the
-pop-up menu to register any kind of payment.
+To register a *new* third party check for a customer invoice, click the :guilabel:`Register Payment`
+button. In the pop-up window, you must select :guilabel:`Third Party Checks` as journal for the
+payment registration.
 
-.. image:: argentina/register-peyment-customerinvoice.png
-   :align: center
-   :alt: Register Payment button on a customer invoice.
-
-In this window, it is necessary to select the :guilabel:`Third Party Checks` journal from which the
-payment will be made.
-
-When selecting the :guilabel:`New Third Party Checks` method, the fields required to create a new
-check will be presented. With these fields you can determine the :guilabel:`Check Number`, the
-:guilabel:`Payment Date` and the :guilabel:`Check Bank`.
-
-Also, you can manually add the :guilabel:`Check Issuer CUIT`, but regularly this will be auto-filled
-by the client's CUIT related to the invoice.
+Select :guilabel:`New Third Party Checks` as :guilabel:`Payment Method`, and fill in the
+:guilabel:`Check Number`, :guilabel:`Payment Date`, and :guilabel:`Check Bank`. Optionally, you can
+manually add the :guilabel:`Check Issuer Vat`, but this is automatically filled by the customer's
+VAT number related to the invoice.
 
 .. image:: argentina/third-party-payment-popup.png
    :align: center
@@ -847,32 +853,37 @@ by the client's CUIT related to the invoice.
 Existing third party checks
 ***************************
 
-To pay a vendor bill with an existing check it's necessary to select the :guilabel:`Existing Third
-Party Checks` method, this will show the required :guilabel:`Check` field, which will display the
-available existing checks to be used as a payment for the Vendor Bill.
+To pay a vendor bill with an *existing* check, click the :guilabel:`Register Payment` button. In the
+pop-up window, you must select :guilabel:`Third Party Checks` as journal for the payment
+registration.
+
+Select :guilabel:`Existing Third Party Checks` as :guilabel:`Payment Method`, and select a check
+from the :guilabel:`Check` field. The field shows all **available existing checks** to be used as
+payment for vendor bills.
 
 .. image:: argentina/existing-third-party-popup.png
    :align: center
    :alt: Payment pop-up window with Existing Third Party Check options enabled.
 
-When the :guilabel:`Existing Third Party Check` is used, it is also possible to review which
-operations are related to it, with the :guilabel:`Check Operations` button. Clicking this button
-will display a list of the actions that have been performed with this check. For example, a third
-party check created to pay a customer invoice and later used as an existing third party check to pay
-a vendor bill.
+When an **existing third party check** is used, you can review the operations related to it. For
+example, you can see if a third party check made to pay a customer invoice was later used an
+existing third party check to pay a vendor bill.
+
+To do so, either go to :menuselection:`Accounting --> Customers --> Third Party Checks` or
+:menuselection:`Accounting --> Vendors --> Own Checks` depending on the case, and click on a check.
+In the :guilabel:`Check Current Journal` field, click on :guilabel:`=> Check Operations` to bring up
+the check's history and movements.
 
 .. image:: argentina/check-operations-menulist.png
    :align: center
    :alt: Check Operations menu.
 
-When having multiple operations for the check, the menu will show multiple records.
+The menu also displays critical information related to these operations, such as:
 
-The menu also presents critical information related to these operations like:
-
-- The type of payment, to classify if the operation was either a payment sent to a vendor or a
-  payment received from the customer
-- The journal in which the check is currently being managed
-- The partner associated with the operation, either a client or vendor
+- The :guilabel:`Payment Type`, allowing to classify whether it is a payment *sent* to a vendor or a
+  payment *received* from a customer
+- The :guilabel:`Journal` in which the check is currently registered
+- The **partner** associated with the operation (either customer or vendor).
 
 Reports
 =======
