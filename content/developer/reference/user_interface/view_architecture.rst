@@ -1,11 +1,11 @@
 =================
-View Architecture
+View architecture
 =================
-
-.. _user_interface/view_architecture/options:
 
 Generic view
 ============
+
+.. _user_interface/view_architecture/options:
 
 Options / Attributes
 --------------------
@@ -708,7 +708,7 @@ Below is a possible structure and the representation of its rendering.
       </group>
     </group>
 
-  .. image:: img/form_group.svg
+  .. image:: view_architecture/form_group.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/form/sheet:
@@ -777,7 +777,7 @@ Below is a possible structure and the representation of its rendering.
       </notebook>
     </form>
 
-  .. image:: img/form_notebook.svg
+  .. image:: view_architecture/form_notebook.svg
     :class: col-xxl-6
 
 .. note:: Note that ``notebook`` should not be placed within ``group``
@@ -817,7 +817,7 @@ Below is a possible structure and the representation of its rendering.
       </group>
     </form>
 
-  .. image:: img/form_newline.svg
+  .. image:: view_architecture/form_newline.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/form/separator:
@@ -864,7 +864,7 @@ Below is a possible structure and the representation of its rendering.
       </group>
     </form>
 
-  .. image:: img/form_separator.svg
+  .. image:: view_architecture/form_separator.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/form/header:
@@ -961,7 +961,7 @@ Container for specific rendering to display :ref:`buttons <reference/user_interf
       ...
     <form>
 
-  .. image:: img/form_button_box.svg
+  .. image:: view_architecture/form_button_box.svg
     :class: col-xxl-6
 
 container for a title
@@ -1197,7 +1197,7 @@ List
       ...
     </tree>
 
-  .. image:: img/list.svg
+  .. image:: view_architecture/list.svg
     :class: col-xxl-6
 
 The root element of list views is ``<tree>``\ [#treehistory]_. The list view's
@@ -1553,7 +1553,7 @@ Below is a possible structure and the representation of its rendering.
       <field name="tax_id"/>
     </tree>
 
-  .. image:: img/list_field.svg
+  .. image:: view_architecture/list_field.svg
     :class: col-xxl-6
 
 <button>: display button to call action
@@ -1681,7 +1681,7 @@ Below is a possible structure and the representation of its rendering.
       <field name="tax_id"/>
     </tree>
 
-  .. image:: img/list_button.svg
+  .. image:: view_architecture/list_button.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/list/groupby:
@@ -1739,7 +1739,7 @@ group the record by the selected.
       </groupby>
     </tree>
 
-  .. image:: img/list_groupby.svg
+  .. image:: view_architecture/list_groupby.svg
     :class: col-xxl-6
 
 .. note::
@@ -1801,7 +1801,7 @@ Below is a possible structure and the representation of its rendering.
       <field name="tax_id"/>
     </tree>
 
-  .. image:: img/list_header.svg
+  .. image:: view_architecture/list_header.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/list/control:
@@ -1859,7 +1859,7 @@ Below is a possible structure and the representation of its rendering.
       </control>
     </tree>
 
-  .. image:: img/list_control.svg
+  .. image:: view_architecture/list_control.svg
     :class: col-xxl-6
 
 .. note:: ``<control>`` makes sense if the parent ``tree`` view is inside a
@@ -1887,7 +1887,7 @@ Search
       ...
     </search>
 
-  .. image:: img/search.svg
+  .. image:: view_architecture/search.svg
     :class: col-xxl-6
 
 Search views are different from other view types: they don't display
@@ -2002,7 +2002,7 @@ Below is a possible structure and the representation of its rendering.
       <field name="ref" filter_domain="[('name', 'like', self)]"/>
     </search>
 
-  .. image:: img/search_field.svg
+  .. image:: view_architecture/search_field.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/search/filter:
@@ -2192,7 +2192,7 @@ Below is a possible structure and the representation of its rendering.
           context="{'group_by': 'category_id'}"/>
     </search>
 
-  .. image:: img/search_filter.svg
+  .. image:: view_architecture/search_filter.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/search/separator:
@@ -2389,7 +2389,7 @@ Kanban
       ...
     </kanban>
 
-  .. image:: img/kanban.svg
+  .. image:: view_architecture/kanban.svg
     :class: col-xxl-6
 
 The kanban view is a `kanban board`_ visualisation: it displays records as
@@ -2537,7 +2537,7 @@ Fields can use the following attributes:
       </templates>
     </kanban>
 
-  .. image:: img/kanban_field.svg
+  .. image:: view_architecture/kanban_field.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/kanban/header:
@@ -2629,7 +2629,7 @@ Possible attributes are:
       </templates>
     </kanban>
 
-  .. image:: img/kanban_progressbar.svg
+  .. image:: view_architecture/kanban_progressbar.svg
     :class: col-xxl-6
 
 .. _reference/user_interface/view_architecture/kanban/templates:
